@@ -3,6 +3,7 @@ const morgan = require("morgan")
 const dotenv=require("dotenv").config()
 const db=require("./config/db")
 const bodyParser=require("body-parser")
+
 const app=express()
 
 app.use(morgan("dev"))
@@ -18,7 +19,8 @@ app.get('/',(req,res)=>{
 
 db.query('SELECT 1').then(()=>{
     console.log("DB connected")
-    app.listen(3003,()=>{
+    const port=process.env.PORT || 3000
+    app.listen(port,()=>{
         console.log("Server Running!!!")
     })
 }).catch((error)=>{
