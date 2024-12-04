@@ -22,6 +22,7 @@ const createSchool=async(req,res)=>{
         }
         const [data] =await db.query(`INSERT INTO schools (id,name, address, latitude, longitude) VALUES (?, ?, ?, ?,?)`,[id,name, address, latitude, longitude]) ;
         res.status(200).json({massage:"Data saved"})
+        res.status(200).json(data)
     } catch (error) {
         console.log(error)
         return res.status(500).json("error!!")
