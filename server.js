@@ -3,6 +3,8 @@ const morgan = require("morgan")
 const dotenv=require("dotenv").config()
 const db=require("./config/db")
 const bodyParser=require("body-parser")
+const cors = require('cors');
+app.use(cors());
 
 const app=express()
 
